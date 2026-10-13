@@ -1,0 +1,2074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Merapi Run | Run Beyond the Mountain</title>
+
+  <meta
+    name="description"
+    content="Merapi Run is a running experience in Kaliurang, Yogyakarta. Choose your challenge and run at the foot of Mount Merapi."
+  />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* ======================================================
+       RESET
+    ====================================================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: #0a0a0a;
+      color: #f7f4ef;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    /* ======================================================
+       VARIABLES
+    ====================================================== */
+
+    :root {
+      --black: #0a0a0a;
+      --charcoal: #171717;
+      --charcoal-light: #202020;
+      --orange: #ff4d00;
+      --orange-dark: #c93400;
+      --white: #f7f4ef;
+      --gray: #999999;
+      --border: #292929;
+
+      --container: 1240px;
+    }
+
+    /* ======================================================
+       GLOBAL
+    ====================================================== */
+
+    .container {
+      width: min(92%, var(--container));
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 110px 0;
+    }
+
+    .section-label {
+      display: inline-block;
+      margin-bottom: 16px;
+
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+
+      color: var(--orange);
+    }
+
+    .section-title {
+      max-width: 850px;
+
+      font-family: "Anton", sans-serif;
+      font-size: clamp(48px, 7vw, 90px);
+      font-weight: 400;
+      line-height: 0.95;
+      text-transform: uppercase;
+    }
+
+    .section-description {
+      max-width: 620px;
+      margin-top: 24px;
+
+      font-size: 17px;
+      color: var(--gray);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+
+      min-height: 52px;
+      padding: 0 26px;
+
+      border: 1px solid transparent;
+
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+
+      cursor: pointer;
+
+      transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #ff6424;
+    }
+
+    .btn-outline {
+      border-color: rgba(255, 255, 255, 0.4);
+      color: white;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--orange);
+      color: var(--orange);
+    }
+
+    /* ======================================================
+       NAVBAR
+    ====================================================== */
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      z-index: 1000;
+
+      transition:
+        background 0.3s ease,
+        backdrop-filter 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      background: rgba(10, 10, 10, 0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar-inner {
+      height: 82px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: "Anton", sans-serif;
+      font-size: 27px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .logo span {
+      color: var(--orange);
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .nav-menu a {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .nav-menu a:hover {
+      color: var(--orange);
+    }
+
+    .menu-toggle {
+      display: none;
+
+      background: transparent;
+      border: none;
+
+      color: white;
+      font-size: 28px;
+
+      cursor: pointer;
+    }
+
+    /* ======================================================
+       HERO
+    ====================================================== */
+
+    .hero {
+      position: relative;
+
+      min-height: 100vh;
+      padding: 120px 0 70px;
+
+      display: flex;
+      align-items: flex-end;
+
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.92) 0%,
+          rgba(0, 0, 0, 0.72) 40%,
+          rgba(0, 0, 0, 0.25) 100%
+        ),
+        linear-gradient(
+          0deg,
+          #0a0a0a 0%,
+          transparent 30%
+        ),
+        url("https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=2000&q=85")
+        center / cover no-repeat;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background:
+        radial-gradient(
+          circle at 75% 60%,
+          rgba(255, 77, 0, 0.15),
+          transparent 35%
+        );
+
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+
+      max-width: 900px;
+    }
+
+    .hero-eyebrow {
+      margin-bottom: 22px;
+
+      color: var(--orange);
+
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: "Anton", sans-serif;
+
+      font-size: clamp(68px, 10vw, 150px);
+      font-weight: 400;
+      line-height: 0.85;
+
+      text-transform: uppercase;
+    }
+
+    .hero-title span {
+      display: block;
+      color: var(--orange);
+    }
+
+    .hero-description {
+      max-width: 600px;
+
+      margin-top: 30px;
+
+      font-size: clamp(16px, 2vw, 20px);
+      color: #d0d0d0;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+
+      margin-top: 34px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 42px;
+
+      margin-top: 70px;
+    }
+
+    .hero-meta strong {
+      display: block;
+
+      font-family: "Anton", sans-serif;
+      font-size: 30px;
+      font-weight: 400;
+    }
+
+    .hero-meta span {
+      color: var(--gray);
+
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* ======================================================
+       RACE STRIP
+    ====================================================== */
+
+    .race-strip {
+      padding: 0;
+      background: var(--orange);
+    }
+
+    .race-strip-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .race-strip-item {
+      padding: 33px;
+
+      text-align: center;
+
+      border-right: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .race-strip-item:last-child {
+      border-right: none;
+    }
+
+    .race-strip-item strong {
+      display: block;
+
+      font-family: "Anton", sans-serif;
+      font-size: 30px;
+      font-weight: 400;
+
+      text-transform: uppercase;
+    }
+
+    .race-strip-item span {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* ======================================================
+       EXPERIENCE
+    ====================================================== */
+
+    .experience-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .experience-image {
+      position: relative;
+
+      min-height: 620px;
+
+      background:
+        linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.4),
+          transparent
+        ),
+        url("https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1200&q=85")
+        center / cover no-repeat;
+    }
+
+    .experience-number {
+      position: absolute;
+      right: -25px;
+      bottom: -35px;
+
+      font-family: "Anton", sans-serif;
+      font-size: 160px;
+      line-height: 1;
+
+      color: var(--orange);
+    }
+
+    /* ======================================================
+       CATEGORIES
+    ====================================================== */
+
+    .categories {
+      background: var(--charcoal);
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+
+      margin-top: 55px;
+    }
+
+    .category-card {
+      position: relative;
+
+      min-height: 460px;
+      padding: 34px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      border: 1px solid var(--border);
+
+      background:
+        linear-gradient(
+          180deg,
+          #212121,
+          #111111
+        );
+
+      overflow: hidden;
+
+      transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+    }
+
+    .category-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--orange);
+    }
+
+    .category-card.featured {
+      background:
+        linear-gradient(
+          150deg,
+          var(--orange),
+          var(--orange-dark)
+        );
+
+      border-color: var(--orange);
+    }
+
+    .category-distance {
+      font-family: "Anton", sans-serif;
+      font-size: 100px;
+      line-height: 1;
+    }
+
+    .category-type {
+      margin-top: 8px;
+
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .category-description {
+      max-width: 290px;
+      margin-top: 18px;
+
+      color: #b7b7b7;
+    }
+
+    .featured .category-description {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .category-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+
+      margin-top: 50px;
+    }
+
+    .difficulty {
+      font-size: 11px;
+      letter-spacing: 4px;
+    }
+
+    /* ======================================================
+       ROUTE
+    ====================================================== */
+
+    .route-wrapper {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 60px;
+      align-items: stretch;
+
+      margin-top: 60px;
+    }
+
+    .route-info {
+      padding: 45px;
+
+      background: var(--charcoal);
+      border: 1px solid var(--border);
+    }
+
+    .route-tabs {
+      display: flex;
+      gap: 8px;
+
+      margin-bottom: 38px;
+    }
+
+    .route-tab {
+      padding: 11px 18px;
+
+      border: 1px solid var(--border);
+      background: transparent;
+
+      color: var(--white);
+
+      font-size: 13px;
+      font-weight: 800;
+
+      cursor: pointer;
+    }
+
+    .route-tab.active,
+    .route-tab:hover {
+      background: var(--orange);
+      border-color: var(--orange);
+    }
+
+    .route-stats {
+      display: grid;
+      gap: 20px;
+    }
+
+    .route-stat {
+      padding-bottom: 16px;
+
+      border-bottom: 1px solid var(--border);
+    }
+
+    .route-stat span {
+      display: block;
+
+      margin-bottom: 4px;
+
+      color: var(--gray);
+
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .route-stat strong {
+      font-size: 23px;
+    }
+
+    .route-map {
+      position: relative;
+
+      min-height: 520px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background:
+        radial-gradient(
+          circle at 50% 50%,
+          rgba(255, 77, 0, 0.12),
+          transparent 40%
+        ),
+        #111;
+
+      border: 1px solid var(--border);
+    }
+
+    .route-placeholder {
+      text-align: center;
+    }
+
+    .route-placeholder strong {
+      display: block;
+
+      font-family: "Anton", sans-serif;
+      font-size: 50px;
+      font-weight: 400;
+    }
+
+    .route-placeholder span {
+      color: var(--gray);
+    }
+
+    /* ======================================================
+       CTA
+    ====================================================== */
+
+    .cta-section {
+      padding: 100px 0;
+
+      background:
+        radial-gradient(
+          circle at 85% 50%,
+          rgba(255, 255, 255, 0.12),
+          transparent 25%
+        ),
+        linear-gradient(
+          135deg,
+          #ff4d00,
+          #8f2100
+        );
+    }
+
+    .cta-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .cta-title {
+      max-width: 760px;
+
+      font-family: "Anton", sans-serif;
+      font-size: clamp(55px, 8vw, 110px);
+      font-weight: 400;
+      line-height: 0.95;
+      text-transform: uppercase;
+    }
+
+    .cta-section .btn-primary {
+      background: white;
+      color: #111;
+    }
+
+    /* ======================================================
+       RACE KIT
+    ====================================================== */
+
+    .race-kit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+
+      margin-top: 50px;
+    }
+
+    .kit-card {
+      padding: 35px;
+
+      background: var(--charcoal);
+      border: 1px solid var(--border);
+    }
+
+    .kit-icon {
+      margin-bottom: 25px;
+
+      font-size: 42px;
+    }
+
+    .kit-card h3 {
+      margin-bottom: 10px;
+
+      font-family: "Anton", sans-serif;
+      font-size: 26px;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+
+    .kit-card p {
+      color: var(--gray);
+      font-size: 14px;
+    }
+
+    /* ======================================================
+       TIMELINE
+    ====================================================== */
+
+    .timeline {
+      background: var(--charcoal);
+    }
+
+    .timeline-list {
+      max-width: 850px;
+      margin-top: 55px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 40px;
+
+      padding: 27px 0;
+
+      border-bottom: 1px solid var(--border);
+    }
+
+    .timeline-time {
+      font-family: "Anton", sans-serif;
+      font-size: 35px;
+      color: var(--orange);
+    }
+
+    .timeline-event {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    /* ======================================================
+       FAQ
+    ====================================================== */
+
+    .faq-list {
+      max-width: 900px;
+      margin-top: 50px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 28px 0;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      background: transparent;
+      border: none;
+
+      color: white;
+
+      font-size: 17px;
+      font-weight: 700;
+
+      text-align: left;
+
+      cursor: pointer;
+    }
+
+    .faq-question span:last-child {
+      color: var(--orange);
+      font-size: 26px;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+
+      color: var(--gray);
+
+      transition: max-height 0.3s ease;
+    }
+
+    .faq-answer p {
+      padding: 0 0 28px;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 200px;
+    }
+
+    /* ======================================================
+       FOOTER
+    ====================================================== */
+
+    footer {
+      padding: 75px 0 110px;
+
+      background: #050505;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr 0.7fr;
+      gap: 60px;
+    }
+
+    .footer-logo {
+      margin-bottom: 18px;
+
+      font-family: "Anton", sans-serif;
+      font-size: 40px;
+    }
+
+    .footer-logo span {
+      color: var(--orange);
+    }
+
+    .footer-description {
+      max-width: 430px;
+      color: var(--gray);
+    }
+
+    .footer-column h4 {
+      margin-bottom: 18px;
+
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+
+      color: var(--orange);
+    }
+
+    .footer-column a {
+      display: block;
+      margin-bottom: 10px;
+
+      color: var(--gray);
+    }
+
+    .footer-column a:hover {
+      color: white;
+    }
+
+    /* ======================================================
+       MOBILE CTA
+    ====================================================== */
+
+    .mobile-register {
+      display: none;
+    }
+
+    /* ======================================================
+       RESPONSIVE
+    ====================================================== */
+
+    @media (max-width: 900px) {
+
+      section {
+        padding: 85px 0;
+      }
+
+      .desktop-register {
+        display: none;
+      }
+
+      .nav-menu {
+        position: fixed;
+        top: 82px;
+        left: 0;
+
+        width: 100%;
+
+        padding: 30px;
+
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+
+        background: #0a0a0a;
+
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-menu.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .hero {
+        min-height: 92vh;
+
+        background-position: 65% center;
+      }
+
+      .hero-meta {
+        gap: 28px;
+      }
+
+      .race-strip-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .race-strip-item {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+      }
+
+      .experience-layout {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .experience-image {
+        min-height: 500px;
+      }
+
+      .experience-number {
+        right: 10px;
+      }
+
+      .category-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .route-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      .race-kit-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cta-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .mobile-register {
+        position: fixed;
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+
+        z-index: 999;
+
+        display: flex;
+      }
+
+      .mobile-register .btn {
+        width: 100%;
+
+        box-shadow:
+          0 12px 35px rgba(255, 77, 0, 0.4);
+      }
+
+    }
+
+    @media (max-width: 600px) {
+
+      .hero {
+        padding-bottom: 55px;
+      }
+
+      .hero-title {
+        font-size: clamp(62px, 20vw, 90px);
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .hero-meta {
+        margin-top: 45px;
+      }
+
+      .hero-meta strong {
+        font-size: 25px;
+      }
+
+      .experience-image {
+        min-height: 390px;
+      }
+
+      .experience-number {
+        font-size: 100px;
+      }
+
+      .category-distance {
+        font-size: 80px;
+      }
+
+      .route-info {
+        padding: 28px;
+      }
+
+      .route-map {
+        min-height: 370px;
+      }
+
+      .race-kit-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        grid-template-columns: 90px 1fr;
+        gap: 15px;
+      }
+
+      .timeline-time {
+        font-size: 27px;
+      }
+
+      .timeline-event {
+        font-size: 16px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- ====================================================
+       NAVIGATION
+  ===================================================== -->
+
+  <header class="navbar" id="navbar">
+
+    <div class="container navbar-inner">
+
+      <a href="#home" class="logo">
+        MERAPI<span>RUN</span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+
+        <a href="#race">Race</a>
+        <a href="#route">Route</a>
+        <a href="#experience">Experience</a>
+        <a href="#faq">FAQ</a>
+
+      </nav>
+
+      <a href="#register" class="btn btn-primary desktop-register">
+        Register Now →
+      </a>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open navigation"
+      >
+        ☰
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <!-- ====================================================
+       HERO
+  ===================================================== -->
+
+  <main>
+
+    <section class="hero" id="home">
+
+      <div class="container">
+
+        <div class="hero-content">
+
+          <div class="hero-eyebrow">
+            Kaliurang • Yogyakarta
+          </div>
+
+          <h1 class="hero-title">
+            Run Beyond
+            <span>The Mountain.</span>
+          </h1>
+
+          <p class="hero-description">
+            Experience the cool mountain air, challenging roads,
+            and unforgettable atmosphere of Kaliurang at the foot
+            of Mount Merapi.
+          </p>
+
+          <div class="hero-actions">
+
+            <a href="#register" class="btn btn-primary">
+              Register Now →
+            </a>
+
+            <a href="#race" class="btn btn-outline">
+              Explore The Race
+            </a>
+
+          </div>
+
+          <div class="hero-meta">
+
+            <div>
+              <strong>3K</strong>
+              <span>Fun Run</span>
+            </div>
+
+            <div>
+              <strong>10K</strong>
+              <span>Challenge</span>
+            </div>
+
+            <div>
+              <strong>21K</strong>
+              <span>Half Marathon</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         RACE STRIP
+    =================================================== -->
+
+    <section class="race-strip">
+
+      <div class="race-strip-grid">
+
+        <div class="race-strip-item">
+          <strong>3K / 10K / 21K</strong>
+          <span>Distance</span>
+        </div>
+
+        <div class="race-strip-item">
+          <strong>Kaliurang</strong>
+          <span>Yogyakarta</span>
+        </div>
+
+        <div class="race-strip-item">
+          <strong>Merapi</strong>
+          <span>Mountain Experience</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         EXPERIENCE
+    =================================================== -->
+
+    <section id="experience">
+
+      <div class="container">
+
+        <div class="experience-layout">
+
+          <div class="experience-image">
+            <div class="experience-number">01</div>
+          </div>
+
+          <div>
+
+            <span class="section-label">
+              The Experience
+            </span>
+
+            <h2 class="section-title">
+              Not Just Another Run.
+            </h2>
+
+            <p class="section-description">
+              Cool air. Mountain scenery. Challenging roads.
+              Merapi on the horizon. Every kilometer brings a
+              different story.
+            </p>
+
+            <br>
+
+            <a href="#race" class="btn btn-primary">
+              Explore The Challenge →
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         RACE CATEGORIES
+    =================================================== -->
+
+    <section class="categories" id="race">
+
+      <div class="container">
+
+        <span class="section-label">
+          Race Categories
+        </span>
+
+        <h2 class="section-title">
+          Choose Your Challenge.
+        </h2>
+
+        <div class="category-grid">
+
+          <!-- 3K -->
+
+          <article class="category-card">
+
+            <div>
+
+              <div class="category-distance">
+                3K
+              </div>
+
+              <div class="category-type">
+                Fun Run
+              </div>
+
+              <p class="category-description">
+                A relaxed running experience for beginners,
+                families, and recreational runners.
+              </p>
+
+            </div>
+
+            <div class="category-bottom">
+
+              <div>
+                <small>Difficulty</small>
+                <div class="difficulty">
+                  ● ○ ○ ○ ○
+                </div>
+              </div>
+
+              <span>→</span>
+
+            </div>
+
+          </article>
+
+
+          <!-- 10K -->
+
+          <article class="category-card featured">
+
+            <div>
+
+              <div class="category-distance">
+                10K
+              </div>
+
+              <div class="category-type">
+                The Challenge
+              </div>
+
+              <p class="category-description">
+                The ideal distance for runners ready to take
+                their Merapi experience to another level.
+              </p>
+
+            </div>
+
+            <div class="category-bottom">
+
+              <div>
+                <small>Difficulty</small>
+                <div class="difficulty">
+                  ● ● ● ○ ○
+                </div>
+              </div>
+
+              <span>→</span>
+
+            </div>
+
+          </article>
+
+
+          <!-- 21K -->
+
+          <article class="category-card">
+
+            <div>
+
+              <div class="category-distance">
+                21K
+              </div>
+
+              <div class="category-type">
+                Half Marathon
+              </div>
+
+              <p class="category-description">
+                A serious challenge for runners ready to
+                conquer the roads around Merapi.
+              </p>
+
+            </div>
+
+            <div class="category-bottom">
+
+              <div>
+                <small>Difficulty</small>
+                <div class="difficulty">
+                  ● ● ● ● ○
+                </div>
+              </div>
+
+              <span>→</span>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         ROUTE
+    =================================================== -->
+
+    <section id="route">
+
+      <div class="container">
+
+        <span class="section-label">
+          Race Route
+        </span>
+
+        <h2 class="section-title">
+          Know Your Route.
+        </h2>
+
+        <p class="section-description">
+          Study the distance, elevation, and key route information
+          before taking your place on the starting line.
+        </p>
+
+
+        <div class="route-wrapper">
+
+          <div class="route-info">
+
+            <div class="route-tabs">
+
+              <button
+                class="route-tab active"
+                data-distance="3K"
+              >
+                3K
+              </button>
+
+              <button
+                class="route-tab"
+                data-distance="10K"
+              >
+                10K
+              </button>
+
+              <button
+                class="route-tab"
+                data-distance="21K"
+              >
+                21K
+              </button>
+
+            </div>
+
+
+            <div class="route-stats">
+
+              <div class="route-stat">
+                <span>Distance</span>
+                <strong id="routeDistance">
+                  3 KM
+                </strong>
+              </div>
+
+              <div class="route-stat">
+                <span>Elevation Gain</span>
+                <strong id="routeElevation">
+                  ± 80 M
+                </strong>
+              </div>
+
+              <div class="route-stat">
+                <span>Water Stations</span>
+                <strong id="routeWater">
+                  1 Station
+                </strong>
+              </div>
+
+              <div class="route-stat">
+                <span>Cut Off Time</span>
+                <strong id="routeCutoff">
+                  60 Minutes
+                </strong>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="route-map">
+
+            <div class="route-placeholder">
+
+              <strong id="routeMapTitle">
+                3K ROUTE
+              </strong>
+
+              <span>
+                Interactive map can be inserted here.
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         CTA
+    =================================================== -->
+
+    <section class="cta-section" id="register">
+
+      <div class="container">
+
+        <div class="cta-wrapper">
+
+          <h2 class="cta-title">
+            Ready To Run Merapi?
+          </h2>
+
+          <!-- CHANGE THIS LINK -->
+          <a
+            href="#"
+            class="btn btn-primary"
+          >
+            Register Now →
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         RACE KIT
+    =================================================== -->
+
+    <section>
+
+      <div class="container">
+
+        <span class="section-label">
+          Participant Benefits
+        </span>
+
+        <h2 class="section-title">
+          Your Race Kit.
+        </h2>
+
+
+        <div class="race-kit-grid">
+
+          <div class="kit-card">
+            <div class="kit-icon">◼</div>
+
+            <h3>Race Jersey</h3>
+
+            <p>
+              Official Merapi Run race jersey.
+            </p>
+          </div>
+
+
+          <div class="kit-card">
+            <div class="kit-icon">◉</div>
+
+            <h3>Finisher Medal</h3>
+
+            <p>
+              A race souvenir for your Merapi story.
+            </p>
+          </div>
+
+
+          <div class="kit-card">
+            <div class="kit-icon">#</div>
+
+            <h3>BIB Number</h3>
+
+            <p>
+              Official participant race number.
+            </p>
+          </div>
+
+
+          <div class="kit-card">
+            <div class="kit-icon">◆</div>
+
+            <h3>Race Bag</h3>
+
+            <p>
+              Participant race pack and selected products.
+            </p>
+          </div>
+
+
+          <div class="kit-card">
+            <div class="kit-icon">+</div>
+
+            <h3>Refreshment</h3>
+
+            <p>
+              Refreshment after your race.
+            </p>
+          </div>
+
+
+          <div class="kit-card">
+            <div class="kit-icon">✓</div>
+
+            <h3>Certificate</h3>
+
+            <p>
+              Digital certificate for finishers.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         RACE DAY
+    =================================================== -->
+
+    <section class="timeline">
+
+      <div class="container">
+
+        <span class="section-label">
+          Event Schedule
+        </span>
+
+        <h2 class="section-title">
+          Race Day.
+        </h2>
+
+
+        <div class="timeline-list">
+
+          <div class="timeline-item">
+            <div class="timeline-time">
+              04:30
+            </div>
+
+            <div class="timeline-event">
+              Race Area Opens
+            </div>
+          </div>
+
+
+          <div class="timeline-item">
+            <div class="timeline-time">
+              05:00
+            </div>
+
+            <div class="timeline-event">
+              Warm Up
+            </div>
+          </div>
+
+
+          <div class="timeline-item">
+            <div class="timeline-time">
+              05:30
+            </div>
+
+            <div class="timeline-event">
+              21K Start
+            </div>
+          </div>
+
+
+          <div class="timeline-item">
+            <div class="timeline-time">
+              05:45
+            </div>
+
+            <div class="timeline-event">
+              10K Start
+            </div>
+          </div>
+
+
+          <div class="timeline-item">
+            <div class="timeline-time">
+              06:00
+            </div>
+
+            <div class="timeline-event">
+              3K Start
+            </div>
+          </div>
+
+
+          <div class="timeline-item">
+            <div class="timeline-time">
+              09:00
+            </div>
+
+            <div class="timeline-event">
+              Awarding Ceremony
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         FAQ
+    =================================================== -->
+
+    <section id="faq">
+
+      <div class="container">
+
+        <span class="section-label">
+          FAQ
+        </span>
+
+        <h2 class="section-title">
+          Before You Run.
+        </h2>
+
+
+        <div class="faq-list">
+
+
+          <div class="faq-item">
+
+            <button class="faq-question">
+
+              <span>
+                What race categories are available?
+              </span>
+
+              <span>+</span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              <p>
+                Merapi Run features 3K, 10K, and 21K
+                race categories.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-item">
+
+            <button class="faq-question">
+
+              <span>
+                Where is Merapi Run held?
+              </span>
+
+              <span>+</span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              <p>
+                The event takes place in the Kaliurang area,
+                Yogyakarta, near Mount Merapi.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-item">
+
+            <button class="faq-question">
+
+              <span>
+                What does registration include?
+              </span>
+
+              <span>+</span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              <p>
+                Participant benefits may include race jersey,
+                BIB number, race pack, refreshments, medal,
+                and digital certificate depending on the category.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-item">
+
+            <button class="faq-question">
+
+              <span>
+                How do I register?
+              </span>
+
+              <span>+</span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              <p>
+                Select Register Now and continue through the
+                official Merapi Run registration page.
+              </p>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ====================================================
+       FOOTER
+  ===================================================== -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div>
+
+          <div class="footer-logo">
+            MERAPI<span>RUN</span>
+          </div>
+
+          <p class="footer-description">
+            Run beyond the mountain and experience Kaliurang
+            from a different perspective.
+          </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h4>Explore</h4>
+
+          <a href="#race">Race</a>
+          <a href="#route">Route</a>
+          <a href="#experience">Experience</a>
+          <a href="#faq">FAQ</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h4>Follow</h4>
+
+          <a href="#">Instagram</a>
+          <a href="#">TikTok</a>
+          <a href="#">Contact</a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- ====================================================
+       MOBILE REGISTER CTA
+  ===================================================== -->
+
+  <div class="mobile-register">
+
+    <a
+      href="#register"
+      class="btn btn-primary"
+    >
+      Register Now →
+    </a>
+
+  </div>
+
+
+  <!-- ====================================================
+       JAVASCRIPT
+  ===================================================== -->
+
+  <script>
+
+    /* NAVBAR BACKGROUND */
+
+    const navbar = document.getElementById("navbar");
+
+    window.addEventListener("scroll", () => {
+
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+
+    });
+
+
+    /* MOBILE MENU */
+
+    const menuToggle =
+      document.getElementById("menuToggle");
+
+    const navMenu =
+      document.getElementById("navMenu");
+
+    menuToggle.addEventListener("click", () => {
+
+      navMenu.classList.toggle("active");
+
+    });
+
+
+    document
+      .querySelectorAll(".nav-menu a")
+      .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+          navMenu.classList.remove("active");
+
+        });
+
+      });
+
+
+    /* FAQ */
+
+    const faqItems =
+      document.querySelectorAll(".faq-item");
+
+    faqItems.forEach(item => {
+
+      const question =
+        item.querySelector(".faq-question");
+
+      question.addEventListener("click", () => {
+
+        const alreadyActive =
+          item.classList.contains("active");
+
+
+        faqItems.forEach(faq => {
+
+          faq.classList.remove("active");
+
+          faq
+            .querySelector(".faq-question span:last-child")
+            .textContent = "+";
+
+        });
+
+
+        if (!alreadyActive) {
+
+          item.classList.add("active");
+
+          item
+            .querySelector(".faq-question span:last-child")
+            .textContent = "−";
+
+        }
+
+      });
+
+    });
+
+
+    /* ROUTE DATA */
+
+    const routeData = {
+
+      "3K": {
+        distance: "3 KM",
+        elevation: "± 80 M",
+        water: "1 Station",
+        cutoff: "60 Minutes"
+      },
+
+      "10K": {
+        distance: "10 KM",
+        elevation: "± 320 M",
+        water: "3 Stations",
+        cutoff: "2.5 Hours"
+      },
+
+      "21K": {
+        distance: "21 KM",
+        elevation: "± 750 M",
+        water: "6 Stations",
+        cutoff: "5 Hours"
+      }
+
+    };
+
+
+    const tabs =
+      document.querySelectorAll(".route-tab");
+
+
+    tabs.forEach(tab => {
+
+      tab.addEventListener("click", () => {
+
+        tabs.forEach(t =>
+          t.classList.remove("active")
+        );
+
+
+        tab.classList.add("active");
+
+
+        const distance =
+          tab.dataset.distance;
+
+
+        const data =
+          routeData[distance];
+
+
+        document.getElementById(
+          "routeDistance"
+        ).textContent =
+          data.distance;
+
+
+        document.getElementById(
+          "routeElevation"
+        ).textContent =
+          data.elevation;
+
+
+        document.getElementById(
+          "routeWater"
+        ).textContent =
+          data.water;
+
+
+        document.getElementById(
+          "routeCutoff"
+        ).textContent =
+          data.cutoff;
+
+
+        document.getElementById(
+          "routeMapTitle"
+        ).textContent =
+          distance + " ROUTE";
+
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>
